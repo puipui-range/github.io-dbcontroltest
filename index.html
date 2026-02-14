@@ -33,11 +33,14 @@
       try {
         const response = await fetch(url, options);
         const data = await response.json();
+        return data;
       } catch (error) {
         console.error("Error:", error);
+        return;
       }
     }
-    
+
+    // GAS URL
     function getUrl() {
       return "https://script.google.com/macros/s/AKfycbwBIaXXoekhJu9ihOplvbDFgfnY1mLGP2xnTt7Lb8JNmNKNqSDFSVG5U3K4ZawdguJH8A/exec";
     }
@@ -52,7 +55,7 @@
           "Content-Type": "application/json",
         },
       };
-      fetchData(url, options);
+      return fetchData(url, options);
     }
     
     function runPost(){
@@ -69,7 +72,7 @@
           value: "ゴミ",
         }),
       };
-      fetchData(url, options);
+      return fetchData(url, options);
     }
 
     // テスト用
