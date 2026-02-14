@@ -10,7 +10,7 @@ async function fetchData(url, options) {
 // GASのurlにクエリパラメータ（?sheetName=シート名&cell=セル名）を付ける
 function runGet():
   const url =
-    "https://script.google.com/macros/s/GASのデプロイID/exec?sheetName=シート名&cell=セル名";
+    "https://script.google.com/macros/s/GASのデプロイID/exec?sheetName=シート1&cell=A1";
   const options = {
     method: "GET",
     headers: {
