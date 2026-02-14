@@ -62,7 +62,7 @@
       const options = {
         method: "POST",
         headers: {
-          "Content-Type": "text/plain;charset=UTF-8", //"application/json",
+          "Content-Type": "application/json",　//"text/plain;charset=UTF-8",
         },
         // body: JSON.stringify({
         //   sheet: "シート1",
@@ -79,13 +79,13 @@
     }
 
     // テスト用
-    function getTest(){
-      var result = runGet();
+    async function getTest(){
+      var result = await runGet();
       document.getElementById('result').innerText = result.value;
     }
 
-    function postTest(){
-      var result = runPost();
+    async function postTest(){
+      var result = await runPost();
       document.getElementById('result').innerText = result;
     }
   </script>
