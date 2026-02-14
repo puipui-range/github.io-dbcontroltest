@@ -66,18 +66,18 @@
       const options = {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", //"text/plain;charset=UTF-8",
+          "Content-Type": "text/plain;charset=UTF-8", //"application/json",
         },
-        body: JSON.stringify({
-          sheet: "シート1",
-          cell: "A1",
-          value: "ゴミ",
-        })
-        // body: new URLSearchParams({
+        // body: JSON.stringify({
         //   sheet: "シート1",
         //   cell: "A1",
         //   value: "ゴミ",
-        // }).toString()
+        // })
+        body: new URLSearchParams({
+          sheet: "シート1",
+          cell: "A1",
+          value: "ゴミ",
+        }).toString()
       };
       return fetchData(url, options);
     }
