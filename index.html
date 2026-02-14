@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>GAS Fetch テスト</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    button { margin-right: 10px; padding: 6px 12px; }
+    textarea { width: 100%; height: 200px; margin-top: 10px; }
+    .row { margin-bottom: 8px; }
+    label { display: inline-block; width: 90px; }
+  </style>
+</head>
+<body>
+  <h1>GAS Fetch テスト画面</h1>
+
+  <div class="row">
+    <p>test.js に定義した <code>runGet()</code> と <code>runPost()</code> をボタンから実行します。</p>
+  </div>
+
+  <div class="row">
+    <button onclick="getTest()">GET 実行</button>
+    <button onclick="postTest()">POST 実行</button>
+  </div>
+
+  <div class="row">
+    <div id="result"></div>
+  </div>
+
+  <!-- 同じディレクトリの test.js を読み込む -->
+  <script src="test.js"></script>
+  <script>
+    function getTest(){
+      val result = runGet();
+      document.getElementById('result').innerText(result);
+    }
+
+    function postTest(){
+      val result = runPost();
+      document.getElementById('result').innerText(result);
+    }
+  </script>
+</body>
+</html>
