@@ -13,8 +13,6 @@ function getUrl() {
 
 // GASのurlにクエリパラメータ（?sheetName=シート名&cell=セル名）を付ける
 function runGet() {
-  return "OK"
-
   const url = 
     getUrl() + "?sheetName=シート1&cell=A1";
   const options = {
