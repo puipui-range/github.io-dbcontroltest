@@ -58,7 +58,7 @@
     }
 
     // no-corsで一方通行
-    function runPost(){
+    async function runPost(){
       // GASのurl
       const url = getUrl();
       const options = {
@@ -85,7 +85,7 @@
     }
 
     // テスト用
-    async function getTest(){
+    async function getTest() {
       document.getElementById('result').innerText = "取得中";
       try {
         var result = await runGet();
@@ -95,13 +95,13 @@
       }
     }
 
-    async function postTest(){
+    async function postTest() {
       document.getElementById('result').innerText = "送信中";
       try {
-        var result = await runPost();
-        document.getElementById('result').innerText = result;
+        var success = await runPost();
+        document.getElementById('result').innerText = success;
       } catch(error) {
-        document.getElementById('result').innerText = "失敗";
+        document.getElementById('result').innerText = "送信失敗";
       }
     }
   </script>
