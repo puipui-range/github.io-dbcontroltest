@@ -80,8 +80,12 @@
 
     // テスト用
     async function getTest(){
-      var result = await runGet();
-      document.getElementById('result').innerText = result.value;
+      try {
+        var result = await runGet();
+        document.getElementById('result').innerText = result.value;
+      } catch(error) {
+        document.getElementById('result').innerText = "取得失敗"
+      }
     }
 
     async function postTest(){
