@@ -52,10 +52,6 @@
         getUrl() + "?sheetName=シート1&cell=A1";
       const options = {
         method: "GET"
-        // ,
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
       };
       return fetchData(url, options);
     }
@@ -85,7 +81,7 @@
     // テスト用
     function getTest(){
       var result = runGet();
-      document.getElementById('result').innerText = result.stringify();
+      document.getElementById('result').innerText = result.value;
     }
 
     function postTest(){
