@@ -33,7 +33,6 @@
     async function fetchData(url, options) {
       try {
         const response = await fetch(url, options);
-        console.log(response);
         const data = await response.json();
         console.log("data:", data);
         return data;
@@ -61,40 +60,39 @@
     function runPost(){
       // GASのurl
       const url = getUrl();
-      const data = {
-          sheet: "シート1",
-          cell: "A1",
-          value: document.getElementById('postInput').value,
-        };
       const options = {
         method: "POST",
         mode: "no-cors",
         headers: {
           "Content-Type": "text/plain;charset=UTF-8",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          sheet: "シート1",
+          cell: "A1",
+          value: document.getElementById('postInput').value,
+        })
       };
       return fetchData(url, options);
     }
 
     // テスト用
     async function getTest(){
-      document.getElementById('result').innerText = "取得中"
+      document.getElementById('result').innerText = "取得中";
       try {
         var result = await runGet();
         document.getElementById('result').innerText = result.value;
       } catch(error) {
-        document.getElementById('result').innerText = "取得失敗"
+        document.getElementById('result').innerText = "取得失敗";
       }
     }
 
     async function postTest(){
-      document.getElementById('result').innerText = "送信/取得中"
+      document.getElementById('result').innerText = "送信/取得中";
       try {
         var result = await runPost();
-        document.getElementById('result').innerText = result;
+        document.getElementById('result').innerText = result.value;
       } catch(error) {
-        document.getElementById('result').innerText = "失敗"
+        document.getElementById('result').innerText = "失敗";
       }
     }
   </script>
